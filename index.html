@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>头部导航栏布局</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/data.js"></script>
+</head>
+
+<body>
+    <div class="outer">
+
+        <!-- 侧边栏 -->
+        <div class="toolBar">
+            <!-- 侧边栏的内容 -->
+            <div class="content"></div>
+            <!-- 面包屑 -->
+            <div class="menu"></div>
+            <!-- 中间导航区域 -->
+            <ul class="navList">
+                <li>
+                    <i></i>
+                    <p>商品会员</p>
+                </li>
+                <li>
+                    <i></i>
+                    <p>购物车</p>
+                </li>
+                <li>
+                    <i></i>
+                    <p>我的关注</p>
+                </li>
+                <li>
+                    <i></i>
+                    <p>我的足迹</p>
+                </li>
+                <li>
+                    <i></i>
+                    <p>我的消息</p>
+                </li>
+                <li>
+                    <i></i>
+                    <p>咨询静哥</p>
+                </li>
+            </ul>
+            <!-- 回到顶部 -->
+            <div class="back"></div>
+        </div>
+        <!-- 头部区域 -->
+        <header class="header">
+            <div class="headerTop_out">
+                <div class="headerTop">
+                    <div class="headerTop_left">
+                        <p>尚品汇欢迎您</p>
+                        <p>
+                            请
+                            <a href="javascript:;">登录</a>
+                            <a href="javascript:;">免费注册</a>
+                        </p>
+                    </div>
+                    <div class="headerTop_right">
+                        <a href="javascript:;">我的订单</a>
+                        <a href="javascript:;">我的购物车</a>
+                        <a href="javascript:;">我的尚品汇</a>
+                        <a href="javascript:;">尚品汇会员</a>
+                        <a href="javascript:;">企业采购</a>
+                        <a href="javascript:;">关注尚品汇</a>
+                        <a href="javascript:;">合作招聘</a>
+                        <a href="javascript:;">商家后台</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="headerBottom">
+                <h1 class="logo">
+                    <a href="javascript:;">
+                        <img src="./images/Logo.png" alt="">
+                    </a>
+                </h1>
+                <div class="header_search">
+                    <input type="text">
+                    <button>搜索</button>
+                </div>
+            </div>
+        </header>
+        <div class="allnav_outer">
+            <div class="allnav">
+                <h2>所有商品分类</h2>
+                <nav>
+                    <a href="javascript:;">服装城</a>
+                    <a href="javascript:;">美妆馆</a>
+                    <a href="javascript:;">尚品汇超市</a>
+                    <a href="javascript:;">全球购</a>
+                    <a href="javascript:;">闪购</a>
+                    <a href="javascript:;">团购</a>
+                    <a href="javascript:;">有趣</a>
+                    <a href="javascript:;">秒杀</a>
+                </nav>
+            </div>
+        </div>
+        <section class="con">
+            <div class="conPoint">
+                <a href="javascript:;">手机、数码、通讯手机</a>
+                <a href="javascript:;">Apple苹果</a>
+                <a>iphone 6S系类</a>
+            </div>
+            <div class="mainCon">
+                <div class="previewArea">
+                    <div class="preview">
+                        <!-- 小图区域 -->
+                        <div class="smallArea">
+                            <img src="./images/s1.png" alt="">
+                            <!-- 蒙版区域 -->
+                            <div class="mask"></div>
+                        </div>
+                        <!-- 大图区域 -->
+                        <div class="bigArea">
+                            <img src="./images/b1.png" alt="">
+                        </div>
+                    </div>
+                    <div class="prescroll">
+                        <p class="left">&lt;</p>
+                        <div class="listOut">
+                            <ul class="list">
+                            </ul>
+                        </div>
+                        <p class="right">&gt;</p>
+                    </div>
+                </div>
+                <div class="detailArea">
+                    <div class="priceArea">
+                    </div>
+                    <div class="chooseInsert">
+                    </div>
+                    <div class="chooseArea">
+                        <!-- <dl>
+                            <dt>选择颜色</dt>
+                            <dd>金色</dd>
+                            <dd>银色</dd>
+                            <dd>黑色</dd>
+                        </dl>
+                        <dl>
+                            <dt>内存容量</dt>
+                            <dd>16G</dd>
+                            <dd>32G</dd>
+                            <dd>64G</dd>
+                            <dd>128G</dd>
+                        </dl>
+                        <dl>
+                            <dt>选择版本</dt>
+                            <dd>公开版</dd>
+                            <dd>移动版</dd>
+                        </dl>
+                        <dl>
+                            <dt>选择优惠</dt>
+                            <dd>官方标配</dd>
+                            <dd>移动优惠版</dd>
+                            <dd>电信优惠版</dd>
+                        </dl> -->
+                    </div>
+                    <div class="goodsNum">
+                        <div class="num">
+                            <input type="text" value="1" readonly>
+                            <button class="plus">+</button>
+                            <button class="mins">-</button>
+                        </div>
+                        <div class="addCart">加入购物车</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 商品详情展示页 -->
+        <div class="productDetial">
+            <aside class="aside">
+                <div class="tabTitle">
+                    <h4 class="active">相关分类</h4>
+                    <h4>推荐品牌</h4>
+                </div>
+                <div class="tabContent">
+                    <div class="tab-pane active">
+                        <ul class='partList'>
+                            <li><a href="javascript:;"> 手机</a></li>
+                            <li><a href="javascript:;">手机壳</a></li>
+                            <li><a href="javascript:;">内存卡</a></li>
+                            <li><a href="javascript:;">Iphone配件</a></li>
+                            <li><a href="javascript:;">贴膜</a></li>
+                            <li><a href="javascript:;">手机耳机</a></li>
+                            <li><a href="javascript:;">移动电源</a></li>
+                            <li><a href="javascript:;">平板电脑</a></li>
+                        </ul>
+                        <ul class="goodList">
+                            <li>
+                                <div class="detailImg"><img src="./images/part01.png" alt=""></div>
+                                <h4>Apple苹果iPhone 6s (A1699)</h4>
+                                <p>¥6088.00</p>
+                                <div class="addCart"><a href="">加入购物车</a></div>
+                            </li>
+                            <li>
+                                <div class="detailImg"><img src="./images/part01.png" alt=""></div>
+                                <h4>Apple苹果iPhone 6s (A1699)</h4>
+                                <p>¥6088.00</p>
+                                <div class="addCart"><a href="">加入购物车</a></div>
+                            </li>
+                            <li>
+                                <div class="detailImg"><img src="./images/part01.png" alt=""></div>
+                                <h4>Apple苹果iPhone 6s (A1699)</h4>
+                                <p>¥6088.00</p>
+                                <div class="addCart"><a href="">加入购物车</a></div>
+                            </li>
+                            <li>
+                                <div class="detailImg"><img src="./images/part01.png" alt=""></div>
+                                <h4>Apple苹果iPhone 6s (A1699)</h4>
+                                <p>¥6088.00</p>
+                                <div class="addCart"><a href="">加入购物车</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane">
+                        推荐品牌
+                    </div>
+                </div>
+            </aside>
+            <div class="detail">
+                <div class="fitting">
+                    <h4 class="kt">选择搭配</h4>
+                    <div class="good-suits">
+                        <div class="master">
+                            <img src="./images/l-m01.png" alt="">
+                            <p>¥5299</p>
+                            <i>+</i>
+                        </div>
+                        <ul class="suits">
+                            <li class="suitsItem">
+                                <img src="./images/dp01.png" alt="">
+                                <p>Feless费勒斯VR</p>
+                                <label>
+                                    <input type="checkbox" value="39">
+                                    <span>39</span>
+                                </label>
+                            </li>
+                            <li class="suitsItem">
+                                <img src="./images/dp02.png" alt="">
+                                <p>Feless费勒斯VR</p>
+                                <label>
+                                    <input type="checkbox" value="50">
+                                    <span>50</span>
+                                </label>
+                            </li>
+                            <li class="suitsItem">
+                                <img src="./images/dp03.png" alt="">
+                                <p>Feless费勒斯VR</p>
+                                <label>
+                                    <input type="checkbox" value="59">
+                                    <span>59</span>
+                                </label>
+                            </li>
+                            <li class="suitsItem">
+                                <img src="./images/dp04.png" alt="">
+                                <p>Feless费勒斯VR</p>
+                                <label>
+                                    <input type="checkbox" value="99">
+                                    <span>99</span>
+                                </label>
+                            </li>
+                        </ul>
+                        <div class="result">
+                            <div class="num">已选购0件商品</div>
+                            <p class="price-tit">套餐价</p>
+                            <p class="price">¥5299</p>
+                            <button class="addShopcar">加入购物车</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="intro">
+                    <ul class="tab-wraped">
+                        <li class="active">
+                            <a href="###">商品介绍</a>
+                        </li>
+                        <li class="">
+                            <a href="###">规格与包装</a>
+                        </li>
+                        <li class="">
+                            <a href="###">售后保障</a>
+                        </li>
+                        <li class="">
+                            <a href="###">商品评价</a>
+                        </li>
+                        <li class="">
+                            <a href="###">手机社区</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="one" class="tab-pane active">
+                            <ul class="goods-intro">
+                                <li>分辨率：1920*1080(FHD)</li>
+                                <li>后置摄像头：1200万像素</li>
+                                <li>前置摄像头：500万像素</li>
+                                <li>核 数：其他</li>
+                                <li>频 率：以官网信息为准</li>
+                                <li>品牌： Apple</li>
+                                <li>商品名称：APPLEiPhone 6s Plus</li>
+                                <li>商品编号：1861098</li>
+                                <li>商品产地：中国大陆</li>
+                                <li>商品毛重：0.51kg</li>
+                                <li>热点：指纹识别，Apple Pay，金属机身，拍照神器</li>
+                                <li>系统：苹果（IOS）</li>
+                                <li>像素：1000-1600万品毛重：0.51kg</li>
+                                <li>机身内存：64GB</li>
+                            </ul>
+                            <div class="intro-detail">
+                                <img src="./images/intro01.png" alt="">
+                                <img src="./images/intro02.png" alt="">
+                                <img src="./images/intro03.png" alt="">
+                            </div>
+                        </div>
+                        <div id="two" class="tab-pane">规格与包装</div>
+                        <div id="three" class="tab-pane">售后保障</div>
+                        <div id="four" class="tab-pane">商品评价</div>
+                        <div id="five" class="tab-pane">手机社区</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 引入详情数据数据 -->
+    <script src="./js/data.js"></script>
+    <script>
+        window.addEventListener("DOMContentLoaded", function() {
+                // 放大镜事件
+                smallMarke();
+
+                function smallMarke() {
+                    //视口
+                    var oPreview = document.querySelector('.previewArea .preview');
+                    var oBigArea = document.querySelector('.previewArea .preview .bigArea');
+                    //鼠标移动事件
+                    oPreview.onmousemove = function(e) {
+                            //显示蒙版元素
+                            var oMask = document.querySelector('.previewArea .preview .smallArea .mask');
+                            oMask.style.display = 'block';
+
+                            //计算蒙版元素移动
+                            /*
+                             *蒙版到父元素的距离=鼠标到窗口的距离-父元素到窗口的距离-蒙版宽度的一半
+                             */
+                            var oMaskLocationX = e.clientX - oPreview.getBoundingClientRect().left - oMask.offsetWidth / 2;
+                            var oMaskLocationY = e.clientY - oPreview.getBoundingClientRect().top - oMask.offsetHeight / 2;
+
+                            //判断鼠标事件临界值
+                            //计算最大临界值
+                            var maxX = oPreview.clientWidth - oMask.offsetWidth;
+                            var maxY = oPreview.clientHeight - oMask.offsetHeight;
+                            //判断水平距离
+                            if (oMaskLocationX <= 0) {
+                                oMaskLocationX = 0;
+                            } else if (oMaskLocationX >= maxX) {
+                                oMaskLocationX = maxX;
+                            }
+                            //判断垂直距离
+                            if (oMaskLocationY <= 0) {
+                                oMaskLocationY = 0;
+                            } else if (oMaskLocationY >= maxY) {
+                                oMaskLocationY = maxY;
+                            }
+                            oMask.style.left = oMaskLocationX + 'px';
+                            oMask.style.top = oMaskLocationY + 'px';
+
+
+                            /*
+                             * 放大镜区域显示
+                             * 移动倍数：(oBigAreaImg.offsetWidth-oBigArea.clientWidth)/(oPreview.clientWidth-oMask.offsetWidth)
+                             *
+                             */
+
+                            var oBigArea = document.querySelector('.previewArea .preview .bigArea');
+                            var oBigAreaImg = document.querySelector('.previewArea .preview .bigArea img');
+                            oBigArea.style.display = 'block';
+                            //计算比例
+                            var scale = (oBigAreaImg.offsetWidth - oBigArea.clientWidth) / (oPreview.clientWidth - oMask.offsetWidth);
+                            //赋值X
+                            oBigAreaImg.style.left = -scale * oMaskLocationX + 'px';
+                            oBigAreaImg.style.top = -scale * oMaskLocationY + 'px';
+                        }
+                        //移出隐藏
+                    oPreview.onmouseleave = function(e) {
+                        e.preventDefault();
+                        //获取蒙版并隐藏
+                        var oMask = document.querySelector('.previewArea .preview .smallArea .mask');
+                        oMask.style.display = 'none';
+                        oBigArea.style.display = 'none'
+                    }
+
+                }
+
+                /*
+                 *
+                 *  缩略图点击
+                 *
+                 */
+                var oList = document.querySelector('.previewArea .prescroll .listOut .list');
+
+                //根据缩略图路径生成li,生成缩略图
+                var imgsrc = goodData.imgsrc;
+
+                imgsrc.forEach(
+                    function(item, index) {
+                        //创建img标签
+                        var newImg = new Image();
+                        //把src属性内容添加到img标签中
+                        newImg.src = item.s;
+                        //创建li标签
+                        var newli = document.createElement('li');
+                        //保存下标给点击事件
+                        newImg.dataset._this = index;
+                        //把img标签插入到newli
+                        newli.appendChild(newImg);
+                        //再把newli插入到 oList
+                        oList.appendChild(newli);
+
+                    }
+                );
+
+                oList.onclick = function(e) {
+                        //获取marks的区域图片
+                        var oBigAreaImg = document.querySelector('.previewArea .preview .bigArea img');
+                        var oSmallAreaImg = document.querySelector('.previewArea .preview .smallArea img ');
+                        oSmallAreaImg.src = imgsrc[e.target.dataset._this]['s']
+                        oBigAreaImg.src = imgsrc[e.target.dataset._this]['b']
+                    }
+                    /*
+                     *缩略图点击
+                     *
+                     *
+                     */
+                    //给所有的li绑定点击事件
+
+                // oList.onclick = function(e) {
+                //     //获取点击元素的src
+                //     console.log(e.target.src);
+
+                // }
+
+
+                /*
+                 *  缩略移动
+                 *  每点击一次移动两只距离
+                 *
+                 */
+                var oListOut = document.querySelector('.previewArea .prescroll .listOut');
+                var oLeft = document.querySelector('.previewArea .prescroll .left');
+                var oRight = document.querySelector('.previewArea .prescroll .right');
+                var onewLi = oList.querySelector(' li');
+                var oList = document.querySelector('.previewArea .prescroll .listOut .list');
+                var onewLiAll = oList.querySelectorAll(' li');
+                var leftLocation = 0;
+                //计算每一步所走的距离(固定)
+                var everyMove = 2 * onewLi.offsetWidth;
+                //一共要走多少距离（固定）
+                var allMove = onewLi.offsetWidth * onewLiAll.length - oListOut.clientWidth;
+
+                //临界值判断
+                oLeft.onclick = function() {
+                    //剩下多少距离(动态变化）；allMove永远不变
+                    var overMove = allMove - leftLocation;
+                    if (overMove > everyMove) {
+                        //累加
+                        leftLocation += everyMove;
+
+
+                    } else if (overMove < everyMove && overMove > 0) {
+                        leftLocation += overMove;
+                    } else if (overMove <= everyMove) {
+                        leftLocation = allMove;
+                    }
+                    oList.style.transform = "translateX(" + -leftLocation + 'px)';
+                }
+
+                oRight.onclick = function() {
+                    if (leftLocation == 0) {
+                        return
+                    }
+                    if (leftLocation >= everyMove) {
+                        leftLocation -= everyMove
+                    }
+                    oList.style.transform = "translateX(" + -leftLocation + 'px)';
+                }
+
+
+                //详情数据
+                var oPriceAre = document.querySelector(".priceArea");
+                var str1 = '<h3 class="title">' + goodData.goodsDetail.title + '</h3>\
+                        <p class="con1">' + goodData.goodsDetail.recommend + '</p>\
+                        <div class="price">\
+                            <div class="priceDetail">\
+                                <p>价&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格</p>\
+                                <p>￥ <span>' + goodData.goodsDetail.price + '</span> 元</p>\
+                            </div>\
+                            <div class="buy">\
+                                <p>促&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;销</p>\
+                                <p><span>' + goodData.goodsDetail.promoteSales.type + '</span>' + goodData.goodsDetail.promoteSales.content + '</p>\
+                            </div>\
+                        </div>\
+                        <div class="support">\
+                            <div class="supportDetail">\
+                                <p>支&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;持</p>\
+                                <p>' + goodData.goodsDetail.support + '</p>\
+                            </div>\
+                            <div class="address">\
+                                <p>配&nbsp;送&nbsp;至</p>\
+                                <p>' + goodData.goodsDetail.address + '</p>\
+                            </div>\
+                        </div>';
+                oPriceAre.innerHTML = str1;
+
+                //配置详情
+                var ochooseArea = document.querySelector(".detailArea .chooseArea");
+                var odataCrumbData = goodData.goodsDetail.crumbData; //数组
+                //添加数据
+                odataCrumbData.forEach(
+                        //生成dl
+                        function(item, index) {
+                            var newdl = document.createElement('dl');
+                            //给dl属性添加自定义属性,作为下一步的时间委托使用
+                            var newdt = document.createElement('dt');
+                            newdt.innerHTML = item.title;
+                            newdl.appendChild(newdt);
+                            //保存dl的下标放在dd上
+                            var _index1 = index
+                                //item是一个数组
+                            item.data.forEach(
+                                    function(item, index) {
+                                        //item是一个对象
+                                        //创建dd元素
+                                        var newdd = document.createElement('dd');
+                                        newdd.dataset._index = _index1;
+                                        //将对象属性添加到创建好的的dd中
+                                        newdd.innerHTML = item.type;
+                                        //把元素插入到dl中
+                                        newdl.appendChild(newdd);
+
+                                    }
+
+                                )
+                                //把dl插入到父元素chooseArea中
+                            ochooseArea.appendChild(newdl);
+
+
+                        }
+                    )
+                    //给chooseArea 里面的dl遍历式添加点击事件，并通过点击事件dt修改样式
+                var chooseAreaDl = document.querySelectorAll('.chooseArea dl')
+                    //添加选择配置方式盒子
+                    // goodData.goodsDetail.crumbData  数组
+                    /*
+                     *给dl绑定 点击事件
+                     *
+                     *
+                     */
+
+                //定义一个数组
+                var arr = new Array(chooseAreaDl.length)
+                arr.fill(null)
+                    // 遍历dl给所有的绑定点击事件
+                chooseAreaDl.forEach((item, index) => {
+
+
+                        //获取当前的dd集合
+                        var _index = index
+                            //获得每一个dl 里面的dd集合
+                        var dlAllDd = item.querySelectorAll('dd')
+
+                        //把当前dd中的一个放进去数组中
+                        dlAllDd.forEach(function(item, index) {
+
+
+                            //每一行的dd绑定点击事件
+                            item.onclick = function() {
+                                dlAllDd.forEach(function(item, index) {
+                                    item.style.color = '#666';
+                                })
+                                item.style.color = 'red';
+
+                                //箭头函数没有this
+                                //数组下标拿dl的  值拿dl里面的dd的
+                                arr[_index] = this //数组中方任何东西都唔所谓
+                                    //生成marke标签
+                                    /*
+                                     *首先遍历数组,添加配置标签
+                                     *
+                                     *
+                                     */
+                                    //每次点击之前清空区域块的标签
+                                    //获取div.chooseInsert位置
+                                var oChooseInsert = document.querySelector('.chooseInsert')
+                                oChooseInsert.innerHTML = ''
+                                arr.forEach((item, index) => {
+                                    //如果数组元素步数null生成marke标签
+                                    if (item) {
+                                        var oA = document.createElement('a')
+                                            //添加数组下标
+                                        oA.dataset._index = index
+                                            // 删除按钮
+                                        oA.innerHTML = 'X'
+                                            //创建标签mark
+                                        var oMarke = document.createElement('mark')
+                                        oMarke.innerText = item.textContent
+                                            //a标签插入到marke标签中
+                                        oMarke.appendChild(oA)
+                                        oChooseInsert.appendChild(oMarke)
+
+                                    }
+
+                                })
+
+                                //点击删除按钮
+                                //获取x标签
+                                var oChooseInsert = document.querySelector('.chooseInsert')
+                                var oMask = oChooseInsert.querySelectorAll('mark')
+                                oMask.forEach(
+                                    function(item, index) {
+                                        item.onclick = function(e) {
+                                            //这里的下标就是dl的下标
+                                            var chooseAreaDl = document.querySelectorAll('.chooseArea dl')
+                                            var chooseAreaDldd = chooseAreaDl[e.target.dataset._index].querySelectorAll('dd')
+                                            chooseAreaDldd.forEach(function(item, index) {
+                                                item.style.color = '#666';
+                                            })
+                                            chooseAreaDldd[0].style.color = 'red'
+                                            if (e.target.dataset._index) {
+                                                //事件委托
+                                                this.remove()
+                                                arr[this.dataset._index] = null
+
+                                            }
+                                            price()
+                                            bblailai()
+                                        }
+                                    }
+                                )
+                                price()
+                                bblailai()
+                            }
+                        })
+                    })
+                    /*
+                     *价格加减
+                     *
+                     *  
+                     */
+
+
+                function price() {
+                    //获取价格
+                    let starprice = document.querySelector('.priceDetail :last-child>span')
+                    let odataCrumbData = goodData.goodsDetail.crumbData;
+                    let ochooseAreaDl = document.querySelectorAll('.chooseArea dl')
+
+                    ochooseAreaDl.forEach((item) => {
+                        let oeveryDd = item.querySelectorAll('dd')
+                        oeveryDd.forEach(function(item, index) {
+                            //颜色判断条件运算  打印并没有属性样式   因此并没有运行里面的代码； 在异步代码中就会实现
+                            if (item.style.color === 'red') {
+                                let _index = index
+                                odataCrumbData[item.dataset._index].data.forEach(function(item, index) {
+                                    if (_index === index) {
+                                        // item.changePrice  要改变的价格
+                                        starprice.innerText = goodData.goodsDetail.price + item.changePrice
+                                    }
+                                })
+                            }
+                        })
+                    })
+                }
+
+                /*
+                 *添加数量
+                 *
+                 *
+                 */
+
+
+                bblailai()
+
+                function bblailai() {
+                    let oNum = document.getElementsByClassName('num')[0]
+                    let oPlus = oNum.querySelector('.plus')
+                    let oMins = oNum.querySelector('.mins')
+                    let oPriceDetail = document.querySelector('.priceDetail')
+                    let count = document.querySelector('.num :first-child')
+                    const oPriceDetails = document.querySelector('.priceDetail :nth-child(2) span')
+                    let counts = count.value
+                    let countprice = oPriceDetails.innerText
+                    oPlus.onclick = function() {
+                        counts++
+                        count.value = counts
+                        oPriceDetails.innerText = countprice * counts
+                    }
+                    oMins.onclick = function() {
+                        counts--
+                        if (counts > 0) {
+                            count.value = counts
+                            oPriceDetails.innerText = countprice * counts
+                        }
+                    }
+                }
+            })
+            /*
+             *左边栏tab 切换
+             *
+             *
+             */
+        let oTabTitle = document.getElementsByClassName('tabTitle')[0]
+        let oFirsth4 = oTabTitle.querySelector(' :first-child')
+        let lasth4 = oTabTitle.querySelector('h4~h4') //兄弟选择器选择后面的元素；h4+h4相邻兄弟选择器必须相邻,DOM节点选择节点调用使用元素
+        let oTabContent = document.querySelector('.tabContent')
+        let oFirstContent = oTabContent.querySelector(' :first-child')
+        let oLastContent = oTabContent.querySelector(' div+div')
+
+        oFirsth4.onclick = () => {
+            oFirsth4.classList.add('active')
+            lasth4.classList.remove('active')
+            oFirstContent.style.display = 'block'
+            oLastContent.style.display = 'none'
+        }
+        lasth4.onclick = () => {
+            oFirsth4.classList.remove('active')
+            lasth4.classList.add('active')
+            oFirstContent.style.display = 'none'
+            oLastContent.style.display = 'block'
+        }
+    </script>
+</body>
+
+</html>
