@@ -748,15 +748,11 @@
              *
              *
              */
-        let oSuitsLi = document.querySelectorAll('.suits li input') //维数组
-
-        // console.log(arrLi);
-
-        // console.log(oSuitsLi);
+        let oSuitsLi = document.querySelectorAll('.suits li input') //伪数组
         oSuitsLi.forEach((item) => {
             item.onclick = () => {
-                //每次点击必须重新获取变量
-                console.log(item);
+                //每次点击必须重新获取变量,获取所有复选框状态
+
             }
         })
     </script>
