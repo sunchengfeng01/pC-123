@@ -575,8 +575,6 @@
 
                         //把当前dd中的一个放进去数组中
                         dlAllDd.forEach(function(item, index) {
-
-
                             //每一行的dd绑定点击事件
                             item.onclick = function() {
                                 dlAllDd.forEach(function(item, index) {
@@ -652,12 +650,15 @@
                      *  
                      */
 
+                price()
+
 
                 function price() {
                     //获取价格
                     let starprice = document.querySelector('.priceDetail :last-child>span')
                     let odataCrumbData = goodData.goodsDetail.crumbData;
                     let ochooseAreaDl = document.querySelectorAll('.chooseArea dl')
+                    const oMaster = document.querySelector('.master p')
 
                     ochooseAreaDl.forEach((item) => {
                         let oeveryDd = item.querySelectorAll('dd')
@@ -669,6 +670,7 @@
                                     if (_index === index) {
                                         // item.changePrice  要改变的价格
                                         starprice.innerText = goodData.goodsDetail.price + item.changePrice
+                                        oMaster.innerText = '¥' + starprice.innerText
                                     }
                                 })
                             }
@@ -681,8 +683,6 @@
                  *
                  *
                  */
-
-
                 bblailai()
 
                 function bblailai() {
@@ -691,28 +691,39 @@
                     let oMins = oNum.querySelector('.mins')
                     let oPriceDetail = document.querySelector('.priceDetail')
                     let count = document.querySelector('.num :first-child')
-                    const oPriceDetails = document.querySelector('.priceDetail :nth-child(2) span')
+                    const oMasters = document.querySelector('.master p')
                     let counts = count.value
-                    let countprice = oPriceDetails.innerText
-                    oPlus.onclick = function() {
+                    let countprice = oPriceDetail.innerText //获取标签中的价格文本，必须用变量保存，不能使用自身赋值的方式
+
+                    oPlus.onclick = function() { //因为会在原来的基础上以倍数提升
                         counts++
                         count.value = counts
                         oPriceDetails.innerText = countprice * counts
+                        oMasters.innerText = '¥' + oPriceDetails.innerText
                     }
                     oMins.onclick = function() {
                         counts--
                         if (counts > 0) {
                             count.value = counts
                             oPriceDetails.innerText = countprice * counts
+                            oMasters.innerText = '¥' + oPriceDetails.innerText
                         }
                     }
                 }
             })
             /*
-             *左边栏tab 切换
+             *选择其他配置数量价格变回原来的价格
              *
              *
              */
+        function black() {
+
+        }
+        /*
+         *左边栏tab 切换
+         *
+         *
+         */
         let oTabTitle = document.getElementsByClassName('tabTitle')[0]
         let oFirsth4 = oTabTitle.querySelector(' :first-child')
         let lasth4 = oTabTitle.querySelector('h4~h4') //兄弟选择器选择后面的元素；h4+h4相邻兄弟选择器必须相邻,DOM节点选择节点调用使用元素
@@ -727,11 +738,27 @@
             oLastContent.style.display = 'none'
         }
         lasth4.onclick = () => {
-            oFirsth4.classList.remove('active')
-            lasth4.classList.add('active')
-            oFirstContent.style.display = 'none'
-            oLastContent.style.display = 'block'
-        }
+                oFirsth4.classList.remove('active')
+                lasth4.classList.add('active')
+                oFirstContent.style.display = 'none'
+                oLastContent.style.display = 'block'
+            }
+            /*
+             *选择搭配复选框控制
+             *
+             *
+             */
+        let oSuitsLi = document.querySelectorAll('.suits li input') //维数组
+
+        // console.log(arrLi);
+
+        // console.log(oSuitsLi);
+        oSuitsLi.forEach((item) => {
+            item.onclick = () => {
+                //每次点击必须重新获取变量
+                console.log(item);
+            }
+        })
     </script>
 </body>
 
