@@ -582,6 +582,7 @@
                     dlAllDd.forEach(function(item, index) {
                         //每一行的dd绑定点击事件
                         item.onclick = function() {
+
                             dlAllDd.forEach(function(item, index) {
                                 item.style.color = '#666';
                             })
@@ -626,6 +627,7 @@
                             oMask.forEach(
                                 function(item, index) {
                                     item.onclick = function(e) {
+
                                         //这里的下标就是dl的下标
                                         var chooseAreaDl = document.querySelectorAll('.chooseArea dl')
                                         var chooseAreaDldd = chooseAreaDl[e.target.dataset._index].querySelectorAll('dd')
@@ -706,6 +708,7 @@
                     // let countprice = +oPriceDetail.innerText.slice(1, -1).trim() //获取标签中的价格文本，必须用变量保存，不能使用自身赋值的方式
                 let countprice = +oPriceDetail.innerText
                 oPlus.onclick = function() { //因为会在原来的基础上以倍数提升
+
                     counts++
                     count.value = counts
                     oPriceDetail.innerText = countprice * counts
@@ -714,6 +717,7 @@
 
                 }
                 oMins.onclick = function() {
+
                     counts--
                     if (counts > 0) {
                         count.value = counts
@@ -769,17 +773,26 @@
                 item.onclick = () => {
                     let spanText = 0
                     let count = 0
-                    let oResultPrice = 0
+                    var maskPrice = Number(document.querySelector('.master p').textContent.slice(1))
+                        // let oResultPrice = 0
+
                     oSuitsLi = document.querySelectorAll('.suits li input')
                     oSuitsLi.forEach(function(item, index) {
                         if (item.checked) {
                             //计算复选框个数
                             count++
                             //改变套餐价格
-                            spanText += Number(item.nextElementSibling.innerText)
+                            spanText += Number(item.nextElementSibling.innerText) //选择的菜单价格
                             let oResult = document.getElementsByClassName('result')[0].querySelector('p~p')
-                            oResultPrice = Number(oResult.innerText.slice(1))
-                            oResult.textContent = '¥' + (oResultPrice + spanText)
+                                /*
+                                 *buger :当只有一个复选框时选中框价格会发生变化，再次取消价格并没有变化
+                                 *解决方案待定
+                                 *
+                                 */
+
+                            console.log(maskPrice);
+
+                            oResult.textContent = '¥' + (maskPrice + spanText)
                                 //已选商品价格
                             let oNum = document.getElementsByClassName('num')[1]
                             oNum.innerText = '已选购' + count + '件商品'
