@@ -230,7 +230,7 @@
                     <div class="good-suits">
                         <div class="master">
                             <img src="./images/l-m01.png" alt="">
-                            <p>¥5299</p>
+                            <p>¥5000</p>
                             <i>+</i>
                         </div>
                         <ul class="suits">
@@ -330,169 +330,174 @@
     <script src="./js/data.js"></script>
     <script>
         window.addEventListener("DOMContentLoaded", function() {
-                // 放大镜事件
-                smallMarke();
-
-                function smallMarke() {
-                    //视口
-                    var oPreview = document.querySelector('.previewArea .preview');
-                    var oBigArea = document.querySelector('.previewArea .preview .bigArea');
-                    //鼠标移动事件
-                    oPreview.onmousemove = function(e) {
-                            //显示蒙版元素
-                            var oMask = document.querySelector('.previewArea .preview .smallArea .mask');
-                            oMask.style.display = 'block';
-
-                            //计算蒙版元素移动
-                            /*
-                             *蒙版到父元素的距离=鼠标到窗口的距离-父元素到窗口的距离-蒙版宽度的一半
-                             */
-                            var oMaskLocationX = e.clientX - oPreview.getBoundingClientRect().left - oMask.offsetWidth / 2;
-                            var oMaskLocationY = e.clientY - oPreview.getBoundingClientRect().top - oMask.offsetHeight / 2;
-
-                            //判断鼠标事件临界值
-                            //计算最大临界值
-                            var maxX = oPreview.clientWidth - oMask.offsetWidth;
-                            var maxY = oPreview.clientHeight - oMask.offsetHeight;
-                            //判断水平距离
-                            if (oMaskLocationX <= 0) {
-                                oMaskLocationX = 0;
-                            } else if (oMaskLocationX >= maxX) {
-                                oMaskLocationX = maxX;
-                            }
-                            //判断垂直距离
-                            if (oMaskLocationY <= 0) {
-                                oMaskLocationY = 0;
-                            } else if (oMaskLocationY >= maxY) {
-                                oMaskLocationY = maxY;
-                            }
-                            oMask.style.left = oMaskLocationX + 'px';
-                            oMask.style.top = oMaskLocationY + 'px';
+            const oMaster = document.querySelector('.master p')
+            const oPrice = document.querySelector('p[class=price]')
+            oPrice.innerText = oMaster.textContent
 
 
-                            /*
-                             * 放大镜区域显示
-                             * 移动倍数：(oBigAreaImg.offsetWidth-oBigArea.clientWidth)/(oPreview.clientWidth-oMask.offsetWidth)
-                             *
-                             */
+            // 放大镜事件
+            smallMarke();
 
-                            var oBigArea = document.querySelector('.previewArea .preview .bigArea');
-                            var oBigAreaImg = document.querySelector('.previewArea .preview .bigArea img');
-                            oBigArea.style.display = 'block';
-                            //计算比例
-                            var scale = (oBigAreaImg.offsetWidth - oBigArea.clientWidth) / (oPreview.clientWidth - oMask.offsetWidth);
-                            //赋值X
-                            oBigAreaImg.style.left = -scale * oMaskLocationX + 'px';
-                            oBigAreaImg.style.top = -scale * oMaskLocationY + 'px';
-                        }
-                        //移出隐藏
-                    oPreview.onmouseleave = function(e) {
-                        e.preventDefault();
-                        //获取蒙版并隐藏
+            function smallMarke() {
+                //视口
+                var oPreview = document.querySelector('.previewArea .preview');
+                var oBigArea = document.querySelector('.previewArea .preview .bigArea');
+                //鼠标移动事件
+                oPreview.onmousemove = function(e) {
+                        //显示蒙版元素
                         var oMask = document.querySelector('.previewArea .preview .smallArea .mask');
-                        oMask.style.display = 'none';
-                        oBigArea.style.display = 'none'
-                    }
+                        oMask.style.display = 'block';
 
-                }
+                        //计算蒙版元素移动
+                        /*
+                         *蒙版到父元素的距离=鼠标到窗口的距离-父元素到窗口的距离-蒙版宽度的一半
+                         */
+                        var oMaskLocationX = e.clientX - oPreview.getBoundingClientRect().left - oMask.offsetWidth / 2;
+                        var oMaskLocationY = e.clientY - oPreview.getBoundingClientRect().top - oMask.offsetHeight / 2;
 
-                /*
-                 *
-                 *  缩略图点击
-                 *
-                 */
-                var oList = document.querySelector('.previewArea .prescroll .listOut .list');
+                        //判断鼠标事件临界值
+                        //计算最大临界值
+                        var maxX = oPreview.clientWidth - oMask.offsetWidth;
+                        var maxY = oPreview.clientHeight - oMask.offsetHeight;
+                        //判断水平距离
+                        if (oMaskLocationX <= 0) {
+                            oMaskLocationX = 0;
+                        } else if (oMaskLocationX >= maxX) {
+                            oMaskLocationX = maxX;
+                        }
+                        //判断垂直距离
+                        if (oMaskLocationY <= 0) {
+                            oMaskLocationY = 0;
+                        } else if (oMaskLocationY >= maxY) {
+                            oMaskLocationY = maxY;
+                        }
+                        oMask.style.left = oMaskLocationX + 'px';
+                        oMask.style.top = oMaskLocationY + 'px';
 
-                //根据缩略图路径生成li,生成缩略图
-                var imgsrc = goodData.imgsrc;
 
-                imgsrc.forEach(
-                    function(item, index) {
-                        //创建img标签
-                        var newImg = new Image();
-                        //把src属性内容添加到img标签中
-                        newImg.src = item.s;
-                        //创建li标签
-                        var newli = document.createElement('li');
-                        //保存下标给点击事件
-                        newImg.dataset._this = index;
-                        //把img标签插入到newli
-                        newli.appendChild(newImg);
-                        //再把newli插入到 oList
-                        oList.appendChild(newli);
+                        /*
+                         * 放大镜区域显示
+                         * 移动倍数：(oBigAreaImg.offsetWidth-oBigArea.clientWidth)/(oPreview.clientWidth-oMask.offsetWidth)
+                         *
+                         */
 
-                    }
-                );
-
-                oList.onclick = function(e) {
-                        //获取marks的区域图片
+                        var oBigArea = document.querySelector('.previewArea .preview .bigArea');
                         var oBigAreaImg = document.querySelector('.previewArea .preview .bigArea img');
-                        var oSmallAreaImg = document.querySelector('.previewArea .preview .smallArea img ');
-                        oSmallAreaImg.src = imgsrc[e.target.dataset._this]['s']
-                        oBigAreaImg.src = imgsrc[e.target.dataset._this]['b']
+                        oBigArea.style.display = 'block';
+                        //计算比例
+                        var scale = (oBigAreaImg.offsetWidth - oBigArea.clientWidth) / (oPreview.clientWidth - oMask.offsetWidth);
+                        //赋值X
+                        oBigAreaImg.style.left = -scale * oMaskLocationX + 'px';
+                        oBigAreaImg.style.top = -scale * oMaskLocationY + 'px';
                     }
-                    /*
-                     *缩略图点击
-                     *
-                     *
-                     */
-                    //给所有的li绑定点击事件
+                    //移出隐藏
+                oPreview.onmouseleave = function(e) {
+                    e.preventDefault();
+                    //获取蒙版并隐藏
+                    var oMask = document.querySelector('.previewArea .preview .smallArea .mask');
+                    oMask.style.display = 'none';
+                    oBigArea.style.display = 'none'
+                }
 
-                // oList.onclick = function(e) {
-                //     //获取点击元素的src
-                //     console.log(e.target.src);
+            }
 
-                // }
+            /*
+             *
+             *  缩略图点击
+             *
+             */
+            var oList = document.querySelector('.previewArea .prescroll .listOut .list');
 
+            //根据缩略图路径生成li,生成缩略图
+            var imgsrc = goodData.imgsrc;
 
+            imgsrc.forEach(
+                function(item, index) {
+                    //创建img标签
+                    var newImg = new Image();
+                    //把src属性内容添加到img标签中
+                    newImg.src = item.s;
+                    //创建li标签
+                    var newli = document.createElement('li');
+                    //保存下标给点击事件
+                    newImg.dataset._this = index;
+                    //把img标签插入到newli
+                    newli.appendChild(newImg);
+                    //再把newli插入到 oList
+                    oList.appendChild(newli);
+
+                }
+            );
+
+            oList.onclick = function(e) {
+                    //获取marks的区域图片
+                    var oBigAreaImg = document.querySelector('.previewArea .preview .bigArea img');
+                    var oSmallAreaImg = document.querySelector('.previewArea .preview .smallArea img ');
+                    oSmallAreaImg.src = imgsrc[e.target.dataset._this]['s']
+                    oBigAreaImg.src = imgsrc[e.target.dataset._this]['b']
+                }
                 /*
-                 *  缩略移动
-                 *  每点击一次移动两只距离
+                 *缩略图点击
+                 *
                  *
                  */
-                var oListOut = document.querySelector('.previewArea .prescroll .listOut');
-                var oLeft = document.querySelector('.previewArea .prescroll .left');
-                var oRight = document.querySelector('.previewArea .prescroll .right');
-                var onewLi = oList.querySelector(' li');
-                var oList = document.querySelector('.previewArea .prescroll .listOut .list');
-                var onewLiAll = oList.querySelectorAll(' li');
-                var leftLocation = 0;
-                //计算每一步所走的距离(固定)
-                var everyMove = 2 * onewLi.offsetWidth;
-                //一共要走多少距离（固定）
-                var allMove = onewLi.offsetWidth * onewLiAll.length - oListOut.clientWidth;
+                //给所有的li绑定点击事件
 
-                //临界值判断
-                oLeft.onclick = function() {
-                    //剩下多少距离(动态变化）；allMove永远不变
-                    var overMove = allMove - leftLocation;
-                    if (overMove > everyMove) {
-                        //累加
-                        leftLocation += everyMove;
+            // oList.onclick = function(e) {
+            //     //获取点击元素的src
+            //     console.log(e.target.src);
+
+            // }
 
 
-                    } else if (overMove < everyMove && overMove > 0) {
-                        leftLocation += overMove;
-                    } else if (overMove <= everyMove) {
-                        leftLocation = allMove;
-                    }
-                    oList.style.transform = "translateX(" + -leftLocation + 'px)';
+            /*
+             *  缩略移动
+             *  每点击一次移动两只距离
+             *
+             */
+            var oListOut = document.querySelector('.previewArea .prescroll .listOut');
+            var oLeft = document.querySelector('.previewArea .prescroll .left');
+            var oRight = document.querySelector('.previewArea .prescroll .right');
+            var onewLi = oList.querySelector(' li');
+            var oList = document.querySelector('.previewArea .prescroll .listOut .list');
+            var onewLiAll = oList.querySelectorAll(' li');
+            var leftLocation = 0;
+            //计算每一步所走的距离(固定)
+            var everyMove = 2 * onewLi.offsetWidth;
+            //一共要走多少距离（固定）
+            var allMove = onewLi.offsetWidth * onewLiAll.length - oListOut.clientWidth;
+
+            //临界值判断
+            oLeft.onclick = function() {
+                //剩下多少距离(动态变化）；allMove永远不变
+                var overMove = allMove - leftLocation;
+                if (overMove > everyMove) {
+                    //累加
+                    leftLocation += everyMove;
+
+
+                } else if (overMove < everyMove && overMove > 0) {
+                    leftLocation += overMove;
+                } else if (overMove <= everyMove) {
+                    leftLocation = allMove;
                 }
+                oList.style.transform = "translateX(" + -leftLocation + 'px)';
+            }
 
-                oRight.onclick = function() {
-                    if (leftLocation == 0) {
-                        return
-                    }
-                    if (leftLocation >= everyMove) {
-                        leftLocation -= everyMove
-                    }
-                    oList.style.transform = "translateX(" + -leftLocation + 'px)';
+            oRight.onclick = function() {
+                if (leftLocation == 0) {
+                    return
                 }
+                if (leftLocation >= everyMove) {
+                    leftLocation -= everyMove
+                }
+                oList.style.transform = "translateX(" + -leftLocation + 'px)';
+            }
 
 
-                //详情数据
-                var oPriceAre = document.querySelector(".priceArea");
-                var str1 = '<h3 class="title">' + goodData.goodsDetail.title + '</h3>\
+            //详情数据
+            var oPriceAre = document.querySelector(".priceArea");
+            var str1 = '<h3 class="title">' + goodData.goodsDetail.title + '</h3>\
                         <p class="con1">' + goodData.goodsDetail.recommend + '</p>\
                         <div class="price">\
                             <div class="priceDetail">\
@@ -514,246 +519,279 @@
                                 <p>' + goodData.goodsDetail.address + '</p>\
                             </div>\
                         </div>';
-                oPriceAre.innerHTML = str1;
+            oPriceAre.innerHTML = str1;
 
-                //配置详情
-                var ochooseArea = document.querySelector(".detailArea .chooseArea");
-                var odataCrumbData = goodData.goodsDetail.crumbData; //数组
-                //添加数据
-                odataCrumbData.forEach(
-                        //生成dl
-                        function(item, index) {
-                            var newdl = document.createElement('dl');
-                            //给dl属性添加自定义属性,作为下一步的时间委托使用
-                            var newdt = document.createElement('dt');
-                            newdt.innerHTML = item.title;
-                            newdl.appendChild(newdt);
-                            //保存dl的下标放在dd上
-                            var _index1 = index
-                                //item是一个数组
-                            item.data.forEach(
-                                    function(item, index) {
-                                        //item是一个对象
-                                        //创建dd元素
-                                        var newdd = document.createElement('dd');
-                                        newdd.dataset._index = _index1;
-                                        //将对象属性添加到创建好的的dd中
-                                        newdd.innerHTML = item.type;
-                                        //把元素插入到dl中
-                                        newdl.appendChild(newdd);
+            //配置详情
+            var ochooseArea = document.querySelector(".detailArea .chooseArea");
+            var odataCrumbData = goodData.goodsDetail.crumbData; //数组
+            //添加数据
+            odataCrumbData.forEach(
+                    //生成dl
+                    function(item, index) {
+                        var newdl = document.createElement('dl');
+                        //给dl属性添加自定义属性,作为下一步的时间委托使用
+                        var newdt = document.createElement('dt');
+                        newdt.innerHTML = item.title;
+                        newdl.appendChild(newdt);
+                        //保存dl的下标放在dd上
+                        var _index1 = index
+                            //item是一个数组
+                        item.data.forEach(
+                                function(item, index) {
+                                    //item是一个对象
+                                    //创建dd元素
+                                    var newdd = document.createElement('dd');
+                                    newdd.dataset._index = _index1;
+                                    //将对象属性添加到创建好的的dd中
+                                    newdd.innerHTML = item.type;
+                                    //把元素插入到dl中
+                                    newdl.appendChild(newdd);
 
-                                    }
+                                }
 
-                                )
-                                //把dl插入到父元素chooseArea中
-                            ochooseArea.appendChild(newdl);
-
-
-                        }
-                    )
-                    //给chooseArea 里面的dl遍历式添加点击事件，并通过点击事件dt修改样式
-                var chooseAreaDl = document.querySelectorAll('.chooseArea dl')
-                    //添加选择配置方式盒子
-                    // goodData.goodsDetail.crumbData  数组
-                    /*
-                     *给dl绑定 点击事件
-                     *
-                     *
-                     */
-
-                //定义一个数组
-                var arr = new Array(chooseAreaDl.length)
-                arr.fill(null)
-                    // 遍历dl给所有的绑定点击事件
-                chooseAreaDl.forEach((item, index) => {
+                            )
+                            //把dl插入到父元素chooseArea中
+                        ochooseArea.appendChild(newdl);
 
 
-                        //获取当前的dd集合
-                        var _index = index
-                            //获得每一个dl 里面的dd集合
-                        var dlAllDd = item.querySelectorAll('dd')
-
-                        //把当前dd中的一个放进去数组中
-                        dlAllDd.forEach(function(item, index) {
-                            //每一行的dd绑定点击事件
-                            item.onclick = function() {
-                                dlAllDd.forEach(function(item, index) {
-                                    item.style.color = '#666';
-                                })
-                                item.style.color = 'red';
-
-                                //箭头函数没有this
-                                //数组下标拿dl的  值拿dl里面的dd的
-                                arr[_index] = this //数组中方任何东西都唔所谓
-                                    //生成marke标签
-                                    /*
-                                     *首先遍历数组,添加配置标签
-                                     *
-                                     *
-                                     */
-                                    //每次点击之前清空区域块的标签
-                                    //获取div.chooseInsert位置
-                                var oChooseInsert = document.querySelector('.chooseInsert')
-                                oChooseInsert.innerHTML = ''
-                                arr.forEach((item, index) => {
-                                    //如果数组元素步数null生成marke标签
-                                    if (item) {
-                                        var oA = document.createElement('a')
-                                            //添加数组下标
-                                        oA.dataset._index = index
-                                            // 删除按钮
-                                        oA.innerHTML = 'X'
-                                            //创建标签mark
-                                        var oMarke = document.createElement('mark')
-                                        oMarke.innerText = item.textContent
-                                            //a标签插入到marke标签中
-                                        oMarke.appendChild(oA)
-                                        oChooseInsert.appendChild(oMarke)
-
-                                    }
-
-                                })
-
-                                //点击删除按钮
-                                //获取x标签
-                                var oChooseInsert = document.querySelector('.chooseInsert')
-                                var oMask = oChooseInsert.querySelectorAll('mark')
-                                oMask.forEach(
-                                    function(item, index) {
-                                        item.onclick = function(e) {
-                                            //这里的下标就是dl的下标
-                                            var chooseAreaDl = document.querySelectorAll('.chooseArea dl')
-                                            var chooseAreaDldd = chooseAreaDl[e.target.dataset._index].querySelectorAll('dd')
-                                            chooseAreaDldd.forEach(function(item, index) {
-                                                item.style.color = '#666';
-                                            })
-                                            chooseAreaDldd[0].style.color = 'red'
-                                            if (e.target.dataset._index) {
-                                                //事件委托
-                                                this.remove()
-                                                arr[this.dataset._index] = null
-
-                                            }
-                                            price()
-                                            bblailai()
-                                        }
-                                    }
-                                )
-                                price()
-                                bblailai()
-                            }
-                        })
-                    })
-                    /*
-                     *价格加减
-                     *
-                     *  
-                     */
-
-                price()
-
-
-                function price() {
-                    //获取价格
-                    let starprice = document.querySelector('.priceDetail :last-child>span')
-                    let odataCrumbData = goodData.goodsDetail.crumbData;
-                    let ochooseAreaDl = document.querySelectorAll('.chooseArea dl')
-                    const oMaster = document.querySelector('.master p')
-
-                    ochooseAreaDl.forEach((item) => {
-                        let oeveryDd = item.querySelectorAll('dd')
-                        oeveryDd.forEach(function(item, index) {
-                            //颜色判断条件运算  打印并没有属性样式   因此并没有运行里面的代码； 在异步代码中就会实现
-                            if (item.style.color === 'red') {
-                                let _index = index
-                                odataCrumbData[item.dataset._index].data.forEach(function(item, index) {
-                                    if (_index === index) {
-                                        // item.changePrice  要改变的价格
-                                        starprice.innerText = goodData.goodsDetail.price + item.changePrice
-                                        oMaster.innerText = '¥' + starprice.innerText
-                                    }
-                                })
-                            }
-                        })
-                    })
-                }
-
+                    }
+                )
+                //给chooseArea 里面的dl遍历式添加点击事件，并通过点击事件dt修改样式
+            var chooseAreaDl = document.querySelectorAll('.chooseArea dl')
+                //添加选择配置方式盒子
+                // goodData.goodsDetail.crumbData  数组
                 /*
-                 *添加数量
+                 *给dl绑定 点击事件
                  *
                  *
                  */
-                bblailai()
 
-                function bblailai() {
-                    let oNum = document.getElementsByClassName('num')[0]
-                    let oPlus = oNum.querySelector('.plus')
-                    let oMins = oNum.querySelector('.mins')
-                    let oPriceDetail = document.querySelector('.priceDetail')
-                    let count = document.querySelector('.num :first-child')
-                    const oMasters = document.querySelector('.master p')
-                    let counts = count.value
-                    let countprice = oPriceDetail.innerText //获取标签中的价格文本，必须用变量保存，不能使用自身赋值的方式
+            //定义一个数组
+            var arr = new Array(chooseAreaDl.length)
+            arr.fill(null)
+                // 遍历dl给所有的绑定点击事件
+            chooseAreaDl.forEach((item, index) => {
 
-                    oPlus.onclick = function() { //因为会在原来的基础上以倍数提升
-                        counts++
-                        count.value = counts
-                        oPriceDetails.innerText = countprice * counts
-                        oMasters.innerText = '¥' + oPriceDetails.innerText
-                    }
-                    oMins.onclick = function() {
-                        counts--
-                        if (counts > 0) {
-                            count.value = counts
-                            oPriceDetails.innerText = countprice * counts
-                            oMasters.innerText = '¥' + oPriceDetails.innerText
+
+                    //获取当前的dd集合
+                    var _index = index
+                        //获得每一个dl 里面的dd集合
+                    var dlAllDd = item.querySelectorAll('dd')
+
+                    //把当前dd中的一个放进去数组中
+                    dlAllDd.forEach(function(item, index) {
+                        //每一行的dd绑定点击事件
+                        item.onclick = function() {
+                            dlAllDd.forEach(function(item, index) {
+                                item.style.color = '#666';
+                            })
+                            item.style.color = 'red';
+
+                            //箭头函数没有this
+                            //数组下标拿dl的  值拿dl里面的dd的
+                            arr[_index] = this //数组中方任何东西都唔所谓
+                                //生成marke标签
+                                /*
+                                 *首先遍历数组,添加配置标签
+                                 *
+                                 *
+                                 */
+                                //每次点击之前清空区域块的标签
+                                //获取div.chooseInsert位置
+                            var oChooseInsert = document.querySelector('.chooseInsert')
+                            oChooseInsert.innerHTML = ''
+                            arr.forEach((item, index) => {
+                                //如果数组元素步数null生成marke标签
+                                if (item) {
+                                    var oA = document.createElement('a')
+                                        //添加数组下标
+                                    oA.dataset._index = index
+                                        // 删除按钮
+                                    oA.innerHTML = 'X'
+                                        //创建标签mark
+                                    var oMarke = document.createElement('mark')
+                                    oMarke.innerText = item.textContent
+                                        //a标签插入到marke标签中
+                                    oMarke.appendChild(oA)
+                                    oChooseInsert.appendChild(oMarke)
+
+                                }
+
+                            })
+
+                            //点击删除按钮
+                            //获取x标签
+                            var oChooseInsert = document.querySelector('.chooseInsert')
+                            var oMask = oChooseInsert.querySelectorAll('mark')
+                            oMask.forEach(
+                                function(item, index) {
+                                    item.onclick = function(e) {
+                                        //这里的下标就是dl的下标
+                                        var chooseAreaDl = document.querySelectorAll('.chooseArea dl')
+                                        var chooseAreaDldd = chooseAreaDl[e.target.dataset._index].querySelectorAll('dd')
+                                        chooseAreaDldd.forEach(function(item, index) {
+                                            item.style.color = '#666';
+                                        })
+                                        chooseAreaDldd[0].style.color = 'red'
+                                        if (e.target.dataset._index) {
+                                            //事件委托
+                                            this.remove()
+                                            arr[this.dataset._index] = null
+
+                                        }
+                                        price()
+                                        bblailai()
+                                    }
+                                }
+                            )
+                            price()
+                            bblailai()
                         }
+                    })
+                })
+                /*
+                 *价格加减
+                 *
+                 *  
+                 */
+
+            price()
+
+
+
+            function price() {
+                //获取价格
+                let starprice = document.querySelector('.priceDetail :last-child>span')
+                let odataCrumbData = goodData.goodsDetail.crumbData;
+                let ochooseAreaDl = document.querySelectorAll('.chooseArea dl')
+                ochooseAreaDl.forEach((item) => {
+                    let oeveryDd = item.querySelectorAll('dd')
+                    oeveryDd.forEach(function(item, index) {
+                        //颜色判断条件运算  打印并没有属性样式   因此并没有运行里面的代码； 在异步代码中就会实现
+                        if (item.style.color === 'red') {
+                            let _index = index
+                            odataCrumbData[item.dataset._index].data.forEach(function(item, index) {
+                                if (_index === index) {
+                                    // item.changePrice  要改变的价格
+                                    starprice.innerText = goodData.goodsDetail.price + item.changePrice
+                                    oMaster.innerText = '¥' + starprice.innerText
+                                    oPrice.innerText = oMaster.textContent
+                                }
+                            })
+                        }
+                    })
+                })
+            }
+
+            /*
+             *添加数量
+             *
+             *
+             */
+            bblailai()
+
+
+
+            //必须得变数字
+            // let contai = Number(oPrice.innerText.slice(1))
+
+            function bblailai() {
+                let oNum = document.getElementsByClassName('num')[0]
+                let oPlus = oNum.querySelector('.plus')
+                let oMins = oNum.querySelector('.mins')
+                let oPriceDetail = document.querySelector('.priceDetail p~p span')
+                    // oPriceDetail是上面的价格
+                let count = document.querySelector('.num :first-child')
+                let counts = count.value
+                    // let countprice = +oPriceDetail.innerText.slice(1, -1).trim() //获取标签中的价格文本，必须用变量保存，不能使用自身赋值的方式
+                let countprice = +oPriceDetail.innerText
+                oPlus.onclick = function() { //因为会在原来的基础上以倍数提升
+                    counts++
+                    count.value = counts
+                    oPriceDetail.innerText = countprice * counts
+                    oMaster.innerText = '¥' + oPriceDetail.innerText
+                    oPrice.innerText = oMaster.textContent
+
+                }
+                oMins.onclick = function() {
+                    counts--
+                    if (counts > 0) {
+                        count.value = counts
+                        oPriceDetail.innerText = countprice * counts
+                        oMaster.innerText = '¥' + oPriceDetail.innerText
+                        oPrice.innerText = oMaster.textContent
+                            // contai = oPriceDetail.innerText
+                    } else {
+                        counts = 1
                     }
                 }
-            })
+            }
             /*
              *选择其他配置数量价格变回原来的价格
              *
              *
              */
-        function black() {
+            function black() {
 
-        }
-        /*
-         *左边栏tab 切换
-         *
-         *
-         */
-        let oTabTitle = document.getElementsByClassName('tabTitle')[0]
-        let oFirsth4 = oTabTitle.querySelector(' :first-child')
-        let lasth4 = oTabTitle.querySelector('h4~h4') //兄弟选择器选择后面的元素；h4+h4相邻兄弟选择器必须相邻,DOM节点选择节点调用使用元素
-        let oTabContent = document.querySelector('.tabContent')
-        let oFirstContent = oTabContent.querySelector(' :first-child')
-        let oLastContent = oTabContent.querySelector(' div+div')
-
-        oFirsth4.onclick = () => {
-            oFirsth4.classList.add('active')
-            lasth4.classList.remove('active')
-            oFirstContent.style.display = 'block'
-            oLastContent.style.display = 'none'
-        }
-        lasth4.onclick = () => {
-                oFirsth4.classList.remove('active')
-                lasth4.classList.add('active')
-                oFirstContent.style.display = 'none'
-                oLastContent.style.display = 'block'
             }
             /*
-             *选择搭配复选框控制
+             *左边栏tab 切换
              *
              *
              */
-        let oSuitsLi = document.querySelectorAll('.suits li input') //伪数组
-        oSuitsLi.forEach((item) => {
-            item.onclick = () => {
-                //每次点击必须重新获取变量,获取所有复选框状态
+            let oTabTitle = document.getElementsByClassName('tabTitle')[0]
+            let oFirsth4 = oTabTitle.querySelector(' :first-child')
+            let lasth4 = oTabTitle.querySelector('h4~h4') //兄弟选择器选择后面的元素；h4+h4相邻兄弟选择器必须相邻,DOM节点选择节点调用使用元素
+            let oTabContent = document.querySelector('.tabContent')
+            let oFirstContent = oTabContent.querySelector(' :first-child')
+            let oLastContent = oTabContent.querySelector(' div+div')
 
+            oFirsth4.onclick = () => {
+                oFirsth4.classList.add('active')
+                lasth4.classList.remove('active')
+                oFirstContent.style.display = 'block'
+                oLastContent.style.display = 'none'
             }
+            lasth4.onclick = () => {
+                    oFirsth4.classList.remove('active')
+                    lasth4.classList.add('active')
+                    oFirstContent.style.display = 'none'
+                    oLastContent.style.display = 'block'
+                }
+                /*
+                 *选择搭配复选框控制
+                 *
+                 *
+                 */
+
+            let oSuitsLi = document.querySelectorAll('.suits li input') //伪数组
+            oSuitsLi.forEach((item) => {
+                item.onclick = () => {
+                    let spanText = 0
+                    let count = 0
+                    let oResultPrice = 0
+                    oSuitsLi = document.querySelectorAll('.suits li input')
+                    oSuitsLi.forEach(function(item, index) {
+                        if (item.checked) {
+                            //计算复选框个数
+                            count++
+                            //改变套餐价格
+                            spanText += Number(item.nextElementSibling.innerText)
+                            let oResult = document.getElementsByClassName('result')[0].querySelector('p~p')
+                            oResultPrice = Number(oResult.innerText.slice(1))
+                            oResult.textContent = '¥' + (oResultPrice + spanText)
+                                //已选商品价格
+                            let oNum = document.getElementsByClassName('num')[1]
+                            oNum.innerText = '已选购' + count + '件商品'
+
+                        } else {
+                            item.checked = false
+                        }
+                    })
+
+                }
+            })
+
         })
     </script>
 </body>
